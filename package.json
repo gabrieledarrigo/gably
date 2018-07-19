@@ -1,0 +1,30 @@
+{
+  "name": "gab.ly",
+  "version": "0.1.0",
+  "description": "A super dupa url shortener",
+  "main": "api/app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrieledarrigo/address-book.git"
+  },
+  "keywords": [
+    "url",
+    "shortner"
+  ],
+  "author": "Gabriele D'Arrigo - darrigo.g@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gabrieledarrigo/address-book/issues"
+  },
+  "homepage": "https://github.com/gabrieledarrigo/address-book#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.2.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
+}
