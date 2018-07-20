@@ -4,6 +4,7 @@
   "description": "A super dupa url shortener",
   "main": "api/app.js",
   "scripts": {
+    "start": "node index.js",
     "test": "jest"
   },
   "repository": {
@@ -23,7 +24,8 @@
   "dependencies": {
     "express": "^4.16.3",
     "jest": "^23.4.1",
-    "mongoose": "^5.2.4"
+    "mongoose": "^5.2.4",
+    "shortid": "^2.2.12"
   },
   "devDependencies": {
     "nodemon": "^1.18.3"

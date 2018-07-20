@@ -1,4 +1,4 @@
-const Url = require('../../../server/models/Url.js');
+const Url = require('../../../api/models/Url.js');
 
 describe('Url', () => {
     it('model a url with both the original and the shorten values', () => {
