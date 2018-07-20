@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
-const Schema = { mongoose };
 
-module.export = mongoose.model('url', new Schema({
+module.exports = mongoose.model('url', new mongoose.Schema({
     shortId: String,
     original: String,
     short: String,
