@@ -1,16 +1,19 @@
 const shortid = require('shortid');
-const Url = require('../models/Url.js');
+const config = require('config');
+const ShortUrl = require('../models/ShortUrl.js');
 
 class UrlService {
-    createShortUrl(original) {
-        const BASE_URL = 'http://gab.ly/';
+    createShortUrl(originalUrl) {
+        const _id = shortid.generate();
+
         return {
-            original,
-            shortId: shortid.generate()
+            _id,
+            originalUrl,
+            url: `${config.get('BASE_URL')}${_id}`
         };
     }
 
-    save(original) {
+    save(originalUrl) {
      
     }
 }

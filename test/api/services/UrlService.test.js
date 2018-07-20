@@ -1,23 +1,25 @@
 jest.mock('shortid');
 
 const shortid = require('shortid');
+const config = require('config');
 const UrlService = require('../../../api/services/UrlService.js');
 
 describe('UrlService', () => {
-  
-    it('should save a url into the storage layer', () => {
-        const original = 'http://www.google.it';
-        const shortId = 'xyz';
-
-        shortid.generate.mockReturnValue('xyz');
+    it('should create a shortUrl object', () => {
+        const _id = 'xyz';
+        const originalUrl = 'http://www.google.it';
+        
+        shortid.generate.mockReturnValue(_id);
 
         const urlService = new UrlService();
-        const shortUrl = urlService.createShortUrl(original);
-
-
+        const shortUrl = urlService.createShortUrl(originalUrl);
+        
         expect(shortUrl).toEqual({
-            original,
-            shortId
+            _id,
+            originalUrl,
+            url: `${config.get('BASE_URL')}${_id}`
         })
     });
 });
+
+
