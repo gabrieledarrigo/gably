@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Gab.ly</title>
+        <meta name="description" content="A super duper url shortner">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <main class="main">
+            <header class="main__header">
+                <h1 class="main__title">
+                    Gab.ly
+                </h1>
+            </header>
+
+            <section class="shorten-url">
+                <form class="shorten-url__form">
+                    <input 
+                        id="shorten-url"
+                        class="shorten-url__input"
+                        name="url"  
+                        value=""
+                        type="text" 
+                        placeholder="Paste a link to shorten it" 
+                        autocomplete="off" 
+                        autocorrect="off" 
+                        autocapitalize="off">
+
+                    <button type="button" class="btn btn--primary shorten-url__submit">
+                        Shorten
+                    </button>
+                </form>
+
+                <div class="shorten-url__results">
+
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
