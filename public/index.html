@@ -6,12 +6,65 @@
         <title>Gab.ly</title>
         <meta name="description" content="A super duper url shortner">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://unpkg.com/minireset.css@0.0.3/minireset.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans" rel="stylesheet">
+
+        <style>
+            body {
+                font-family: 'Open Sans', sans-serif;
+                font-size: 16px; 
+            }
+
+            .color__blue-500 {
+                color: #2097ff;
+
+            }
+
+            .color__orange-500 {
+                color: #ff9232;
+            }
+
+            .main {
+                background-color: #418dff14;
+                height: 100vh;
+                width: 100%;
+            }
+
+            .main__header {
+                padding: 3rem 0;
+            }
+
+            .main__title {
+                font-family: 'Fredoka One', cursive;
+                font-size: 3rem;
+                line-height: 1.5;
+                margin-bottom: 1rem;
+                text-align: center;
+            }
+
+            .shorten-url__form {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .shorten-url__input,
+            .shorten-url__submit {
+                height: 2.5rem;
+            }
+
+            .shorten-url__input {
+                padding: 0 0.5rem;
+                width: 50%;
+            }
+        </style>
     </head>
     <body>
         <main class="main">
             <header class="main__header">
-                <h1 class="main__title">
-                    Gab.ly
+                <h1 class="main__title color__blue-500">
+                    Gab.<span class="color__orange-500">ly</span>
                 </h1>
             </header>
 
