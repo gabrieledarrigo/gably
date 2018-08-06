@@ -11,6 +11,8 @@ const connection = mongoose.connect('mongodb://localhost/gably', {
 
 const app = express();
 
+app.use(express.static('public'));
+
 app.get('/', (req, res) => {
     res.end('Gab.ly'); 
 });

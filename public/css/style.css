@@ -1,0 +1,139 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px; 
+}
+
+.color__blue-500 {
+    color: #2097ff;
+
+}
+
+.color__orange-500 {
+    color: #ff9232;
+}
+
+.color__gray-500 {
+    color: #393939;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.main {
+    background-color: #418dff14;
+    height: 100%;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.main__header {
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.main__title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 3rem;
+    line-height: 1.5;
+    text-shadow: 1px 1px 1px #000;
+}
+
+.shorten-url {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 1rem;
+}
+
+@media screen and (min-width: 1024px) {
+    .shorten-url {
+        width: 90%;
+    }    
+}
+
+@media screen and (min-width: 1200px) {
+    .shorten-url {
+        width: 50%;
+    }    
+}
+
+
+
+.shorten-url__form {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.shorten-url__input,
+.shorten-url__submit {
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    height: 3rem;
+}
+
+.shorten-url__input {
+    padding: 0 0.5rem;
+    margin: 0 1rem 0 0;
+    width: 100%;
+}
+
+.shorten-url__submit:hover {
+    cursor: pointer;
+}
+
+.shorten-url__submit {
+    background-color: #ff9232;
+    color: #FFF;
+    text-transform: uppercase;
+}
+
+.results {
+   list-style-type: none 
+}
+
+.results__item {
+    background-color: #FFF;
+    border-radius: 5px;
+    margin: 1rem auto;
+    padding: 1rem;
+}
+
+.result {
+    position: relative;
+}
+
+.result__original {
+    font-size: 0.9rem;
+    margin: 0 0 1rem;
+}
+
+.result__footer {
+    height: 30px;
+    position: relative;
+}
+
+.result__copy {
+    border: transparent;
+    background-color: transparent;
+    display: block;
+    height: 30px;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30px;
+}
+
+.result__copy:hover {
+    cursor: pointer;
+}
+
+.result__copy:hover path {
+    fill: #ff9232;
+}

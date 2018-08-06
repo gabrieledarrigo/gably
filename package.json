@@ -2,14 +2,14 @@
   "name": "gab.ly",
   "version": "0.1.0",
   "description": "A super dupa url shortener",
-  "main": "api/app.js",
+  "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gabrieledarrigo/address-book.git"
+    "url": "git+https://github.com/gabrieledarrigo/gably.git"
   },
   "keywords": [
     "url",
@@ -18,9 +18,9 @@
   "author": "Gabriele D'Arrigo - darrigo.g@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gabrieledarrigo/address-book/issues"
+    "url": "https://github.com/gabrieledarrigo/gably/issues"
   },
-  "homepage": "https://github.com/gabrieledarrigo/address-book#readme",
+  "homepage": "https://github.com/gabrieledarrigo/gably#readme",
   "dependencies": {
     "config": "^1.30.0",
     "express": "^4.16.3",
