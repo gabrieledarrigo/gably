@@ -1,6 +1,6 @@
+const config = require('dotenv').config();
 const sinon = require('sinon');
 const shortid = require('shortid');
-const config = require('config');
 const ShortUrl = require('../../../api/models/ShortUrl');
 const UrlService = require('../../../api/services/UrlService.js');
 
@@ -10,7 +10,7 @@ describe('UrlService', () => {
         shortUrl = {
             _id,
             originalUrl,
-            url: `${config.get('BASE_URL')}${_id}`
+            url: `${config.parsed.APPLICATION_BASE_URL}${_id}`
         }, 
         generateFn,
         findByIdFn;
@@ -27,12 +27,12 @@ describe('UrlService', () => {
     it('should return the server base url', () => {
         const urlService = new UrlService();
 
-        expect(urlService.baseUrl()).toEqual(config.get('BASE_URL'));
+        expect(urlService.baseUrl()).toEqual(config.parsed.APPLICATION_BASE_URL);
     });
 
     it('should return, given a unique _id, a short url', () => {
         const urlService = new UrlService();
-        expect(urlService.shortUrl(_id)).toEqual(`${config.get('BASE_URL')}${_id}`);
+        expect(urlService.shortUrl(_id)).toEqual(`${config.parsed.APPLICATION_BASE_URL}${_id}`);
     });
 
     it('should create a shortUrl object that contain: a unique _id, the original url and the short url', () => {
@@ -43,7 +43,7 @@ describe('UrlService', () => {
         expect(shortUrl).toEqual({
             _id,
             originalUrl,
-            url: `${config.get('BASE_URL')}${_id}`
+            url: `${config.parsed.APPLICATION_BASE_URL}${_id}`
         })
     });
 

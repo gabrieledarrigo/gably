@@ -1,15 +1,27 @@
 version: "3"
 services:
-    server:
+    api:
         restart: always
         build: .
+        environment:
+            - NODE_ENV=${NODE_ENV}
+            - APPLICATION_HTTP_PORT=${APPLICATION_HTTP_PORT}
         ports:
             - "8080:8080"
     mongo:
         image: mongo
         restart: always
         environment:
-            MONGO_INITDB_ROOT_USERNAME: root
-            MONGO_INITDB_ROOT_PASSWORD: example
+            - MONGO_INITDB_ROOT_USERNAME=${MONGO_ROOT_USERNAME}
+            - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
+            - MONGO_APPLICATION_DATABASE=${MONGO_APPLICATION_DATABASE}
+            - MONGO_APPLICATION_USERNAME=${MONGO_APPLICATION_USERNAME}
+            - MONGO_APPLICATION_PASSWORD=${MONGO_APPLICATION_PASSWORD}
         ports:
             - "27017:27017"
+        volumes:
+            - "./data:/data/db"
+            - "./script/:/docker-entrypoint-initdb.d/"
+volumes:
+    data:
+    script:

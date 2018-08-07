@@ -1,9 +1,17 @@
+const config = require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const HTTP_PORT = 8080;
+const {
+    APPLICATION_HTTP_PORT,
+    MONGO_APPLICATION_URI,
+    MONGO_APPLICATION_USERNAME,
+    MONGO_APPLICATION_PASSWORD
+} = config.parsed;
 
-const connection = mongoose.connect('mongodb://localhost/gably', {
-    keepAlive: true
+const connection = mongoose.connect(MONGO_APPLICATION_URI, {
+    keepAlive: true,
+    user: MONGO_APPLICATION_USERNAME,
+    pass: MONGO_APPLICATION_PASSWORD
 })
 .catch(err => {
     console.log(err);
@@ -17,6 +25,6 @@ app.get('/', (req, res) => {
     res.end('Gab.ly'); 
 });
 
-app.listen(HTTP_PORT, () => {
-    console.log(`Gab.ly application up and running on port ${HTTP_PORT}`)
+app.listen(APPLICATION_HTTP_PORT, () => {
+    console.log(`Gab.ly application up and running on port ${APPLICATION_HTTP_PORT}`)
 });

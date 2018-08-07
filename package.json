@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/gabrieledarrigo/gably#readme",
   "dependencies": {
-    "config": "^1.30.0",
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "mongoose": "^5.2.4",
     "shortid": "^2.2.12"
