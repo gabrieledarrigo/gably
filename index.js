@@ -1,6 +1,11 @@
 const config = require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const compression = require('compression');
+const morgan = require('morgan');
+const bodyParser = require('body-parser')
+const { shorten } = require('./controllers/shorten-controller');
+
 const {
     APPLICATION_HTTP_PORT,
     MONGO_APPLICATION_URI,
@@ -19,11 +24,12 @@ const connection = mongoose.connect(MONGO_APPLICATION_URI, {
 
 const app = express();
 
+app.use(bodyParser.json());
+app.use(compression());
+app.use(morgan('tiny'));
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-    res.end('Gab.ly'); 
-});
+app.post(shorten(req, res, next));
 
 app.listen(APPLICATION_HTTP_PORT, () => {
     console.log(`Gab.ly application up and running on port ${APPLICATION_HTTP_PORT}`)
