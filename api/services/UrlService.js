@@ -1,15 +1,12 @@
+const config = require('dotenv').config();
 const shortid = require('shortid');
-const config = require('config');
 const ShortUrl = require('../models/ShortUrl.js');
 
 /**
  * Implements various url domain logic,
  * such query, persistence etc.
  */
-class UrlService {    
-    constructor() {
-        this.BASE_URL_KEY = 'BASE_URL';
-    }
+class UrlService {
 
     /**
      * Return the server base url
@@ -17,7 +14,7 @@ class UrlService {
      * @return {string}
      */
     baseUrl() {
-        return config.get(this.BASE_URL_KEY)
+        return config.parsed.APPLICATION_BASE_URL;
     }
 
     /**
@@ -28,7 +25,7 @@ class UrlService {
      * @return {object} 
      */
     shortUrl(_id = '') {
-        return `${config.get(this.BASE_URL_KEY)}${_id}`;
+        return `${this.baseUrl()}${_id}`;
     }
 
     /**

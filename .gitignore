@@ -17,3 +17,10 @@ node_modules/
 
 # Optional npm cache directory
 .npm
+
+# Env variables
+.env
+
+# Database
+data/*
+!data/.gitkeep
