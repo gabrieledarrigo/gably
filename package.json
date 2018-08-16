@@ -22,9 +22,13 @@
   },
   "homepage": "https://github.com/gabrieledarrigo/gably#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
+    "http-errors": "^1.7.0",
     "mongoose": "^5.2.4",
+    "morgan": "^1.9.0",
     "shortid": "^2.2.12"
   },
   "devDependencies": {
