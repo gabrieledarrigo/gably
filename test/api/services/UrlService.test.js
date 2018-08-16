@@ -4,6 +4,9 @@ const shortid = require('shortid');
 const ShortUrl = require('../../../api/models/ShortUrl');
 const UrlService = require('../../../api/services/UrlService.js');
 
+console.log(config);
+console.log(process.env);
+
 describe('UrlService', () => {
     let _id = 'xyz',
         originalUrl = 'http://www.google.it',
