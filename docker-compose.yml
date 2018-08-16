@@ -1,13 +1,12 @@
 version: "3"
 services:
-    api:
-        restart: always
-        build: .
-        environment:
-            - NODE_ENV=${NODE_ENV}
-            - APPLICATION_HTTP_PORT=${APPLICATION_HTTP_PORT}
-        ports:
-            - "8080:8080"
+    # api:
+    #     restart: always
+    #     build: .
+    #     environment:
+    #         - NODE_ENV=${NODE_ENV}
+    #     ports:
+    #         - "8080:8080"
     mongo:
         image: mongo
         restart: always
