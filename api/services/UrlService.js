@@ -1,6 +1,7 @@
-const config = require('dotenv').config();
+const config = require('config');
 const shortid = require('shortid');
 const ShortUrl = require('../models/ShortUrl.js');
+const { APPLICATION_BASE_URL } = config
 
 /**
  * Implements various url domain logic,
@@ -14,7 +15,7 @@ class UrlService {
      * @return {string}
      */
     baseUrl() {
-        return config.parsed.APPLICATION_BASE_URL;
+        return APPLICATION_BASE_URL;
     }
 
     /**
