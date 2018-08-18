@@ -1,4 +1,4 @@
-const ShortUrl = require('../../../api/models/ShortUrl.js');
+const ShortUrl = require('../../../api/models/ShortUrl');
 
 describe('ShortUrl', () => {
     it('should model a short url with both the original and the shorten values', () => {

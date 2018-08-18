@@ -2,7 +2,7 @@ const config = require('config');
 const sinon = require('sinon');
 const shortid = require('shortid');
 const ShortUrl = require('../../../api/models/ShortUrl');
-const UrlService = require('../../../api/services/UrlService.js');
+const UrlService = require('../../../api/services/UrlService');
 const { APPLICATION_BASE_URL } = config;
 
 describe('UrlService', () => {
