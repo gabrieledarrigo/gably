@@ -1,10 +1,10 @@
 const config = require('config');
 const sinon = require('sinon');
 const UrlService = require('../../../api/services/UrlService');
-const { shorten, redirect } = require('../../../api/controllers/shorten-controller');
+const { shorten, redirect, notFound } = require('../../../api/controllers');
 const { APPLICATION_BASE_URL } = config;
 
-describe('shortenController', () => {
+describe('controllers', () => {
     let res = {
         status(){ return this; },
         json() {},
@@ -12,12 +12,14 @@ describe('shortenController', () => {
     },
     jsonFn,
     redirectFn,
+    nextFn,
     getShortUrlByIdFn,
     saveFn;
     
     beforeEach(() => {
         jsonFn = sinon.stub(res, 'json').callsFake(data => JSON.stringify(data));
         redirectFn = sinon.stub(res, 'redirect');
+        nextFn = sinon.stub();
         getShortUrlByIdFn = sinon.stub(UrlService.prototype, 'getShortUrlById');
         saveFn = sinon.stub(UrlService.prototype, 'save');
     });
@@ -41,7 +43,7 @@ describe('shortenController', () => {
             body: {
                 url
             }
-        }, res, null);
+        }, res, nextFn);
 
         expect(saveFn.calledOnceWith(url)).toBe(true);
         expect(jsonFn.calledOnceWith(shortUrl)).toBe(true);
@@ -50,16 +52,18 @@ describe('shortenController', () => {
 
     it('should return an error if the url is invalid', async () => {
         const handler = shorten();
-        const result = await handler({
+        await handler({
             body: {
                 url: null
             }
-        }, res, null);
+        }, res, nextFn);
+
+        const [ error ] = nextFn.getCall(0).args;
 
         expect(saveFn.notCalled).toBe(true);
-        expect(result).toEqual(JSON.stringify({
-            message: 'Invalid url value'
-        }));
+        expect(nextFn.calledOnce).toBe(true);
+        expect(error.status).toEqual(400);
+        expect(error.message).toEqual('Invalid url value');
     });
 
     it('should redirect to the original url when a user navigate to an existent short url', async () => {
@@ -74,11 +78,11 @@ describe('shortenController', () => {
         getShortUrlByIdFn.returns(shortUrl);
 
         const handler = redirect();
-        const result = await handler({
+        await handler({
             params: {
                 id
             }
-        }, res, null);
+        }, res, nextFn);
 
         expect(getShortUrlByIdFn.calledOnceWith(id)).toBe(true);
         expect(redirectFn.calledOnceWith(url)).toBe(true);
@@ -89,13 +93,24 @@ describe('shortenController', () => {
         getShortUrlByIdFn.returns(null);
 
         const handler = redirect();
-        const result = await handler({
+        await handler({
             params: {
                 id
             }
-        }, res, null);
+        }, res, nextFn);
 
         expect(getShortUrlByIdFn.calledOnceWith(id)).toBe(true);
         expect(redirectFn.calledOnceWith(APPLICATION_BASE_URL)).toBe(true);
+    });
+
+    it('should invoke the error handler with a not found error', async () => {
+        const handler = notFound();
+        await handler(null, null, nextFn);
+
+        const [ error ] = nextFn.getCall(0).args;
+
+        expect(nextFn.calledOnce).toBe(true);
+        expect(error.status).toEqual(404);
+        expect(error.message).toEqual('Not found');
     });
 });

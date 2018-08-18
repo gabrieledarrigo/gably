@@ -3,8 +3,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const compression = require('compression');
 const morgan = require('morgan');
-const bodyParser = require('body-parser')
-const { shorten, redirect } = require('./api/controllers/shorten-controller');
+const bodyParser = require('body-parser');
+const router = require('./api/router');
+const { errorHandler } = require('./api/controllers/error-handler');
+
 const {
     APPLICATION_HTTP_PORT,
     MONGO_APPLICATION_URI,
@@ -28,9 +30,8 @@ app.use(bodyParser.json());
 app.use(compression());
 app.use(morgan('tiny'));
 app.use(express.static('public'));
-
-app.get(redirect());
-app.post(shorten());
+app.use(router());
+app.use(errorHandler());
 
 app.listen(APPLICATION_HTTP_PORT, () => {
     console.log(`Gab.ly application up and running on port ${APPLICATION_HTTP_PORT}`)
