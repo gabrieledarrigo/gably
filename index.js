@@ -14,6 +14,7 @@ const {
 
 const connection = mongoose.connect(MONGO_APPLICATION_URI, {
     keepAlive: true,
+    useNewUrlParser: true,
     user: MONGO_APPLICATION_USERNAME,
     pass: MONGO_APPLICATION_PASSWORD
 })
