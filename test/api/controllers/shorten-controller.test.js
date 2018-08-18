@@ -1,12 +1,10 @@
-const config = require('dotenv').config();
+const config = require('config');
 const sinon = require('sinon');
-const shortid = require('shortid');
-const ShortUrl = require('../../../api/models/ShortUrl');
 const UrlService = require('../../../api/services/UrlService');
 const { shorten, redirect } = require('../../../api/controllers/shorten-controller');
+const { APPLICATION_BASE_URL } = config;
 
 describe('shortenController', () => {
-    let req = {};
     let res = {
         status(){ return this; },
         json() {},
@@ -36,15 +34,14 @@ describe('shortenController', () => {
             value: 'http://gab.ly/xyz'
         };
 
-        const handler = shorten({
+        saveFn.returns(shortUrl);
+
+        const handler = shorten();
+        const result = await handler({
             body: {
                 url
             }
         }, res, null);
-
-        saveFn.returns(shortUrl);
-
-        const result = await handler();
 
         expect(saveFn.calledOnceWith(url)).toBe(true);
         expect(jsonFn.calledOnceWith(shortUrl)).toBe(true);
@@ -52,13 +49,12 @@ describe('shortenController', () => {
     });
 
     it('should return an error if the url is invalid', async () => {
-        const handler = shorten({
+        const handler = shorten();
+        const result = await handler({
             body: {
                 url: null
             }
         }, res, null);
-
-        const result = await handler();
 
         expect(saveFn.notCalled).toBe(true);
         expect(result).toEqual(JSON.stringify({
@@ -77,15 +73,29 @@ describe('shortenController', () => {
 
         getShortUrlByIdFn.returns(shortUrl);
 
-        const handler = redirect({
+        const handler = redirect();
+        const result = await handler({
             params: {
                 id
             }
         }, res, null);
 
-        const result = await handler();
-
         expect(getShortUrlByIdFn.calledOnceWith(id)).toBe(true);
         expect(redirectFn.calledOnceWith(url)).toBe(true);
+    });
+
+    it('should redirect to the APPLICATION_BASE_URL when a user navigate to an not existent short url', async () => {
+        const id = 'abc';
+        getShortUrlByIdFn.returns(null);
+
+        const handler = redirect();
+        const result = await handler({
+            params: {
+                id
+            }
+        }, res, null);
+
+        expect(getShortUrlByIdFn.calledOnceWith(id)).toBe(true);
+        expect(redirectFn.calledOnceWith(APPLICATION_BASE_URL)).toBe(true);
     });
 });

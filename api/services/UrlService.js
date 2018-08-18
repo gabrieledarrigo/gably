@@ -1,6 +1,6 @@
 const config = require('config');
 const shortid = require('shortid');
-const ShortUrl = require('../models/ShortUrl.js');
+const ShortUrl = require('../models/ShortUrl');
 const { APPLICATION_BASE_URL } = config
 
 /**

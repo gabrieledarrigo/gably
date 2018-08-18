@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const compression = require('compression');
 const morgan = require('morgan');
 const bodyParser = require('body-parser')
-const { shorten } = require('./api/controllers/shorten-controller');
+const { shorten, redirect } = require('./api/controllers/shorten-controller');
 const {
     APPLICATION_HTTP_PORT,
     MONGO_APPLICATION_URI,
@@ -29,6 +29,7 @@ app.use(compression());
 app.use(morgan('tiny'));
 app.use(express.static('public'));
 
+app.get(redirect());
 app.post(shorten());
 
 app.listen(APPLICATION_HTTP_PORT, () => {
