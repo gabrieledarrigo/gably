@@ -8,11 +8,9 @@ const errorHandler = () => {
      * @param {object} res
      * @return {object} 
      */
-    return (err, req, res) => {
-        return res
-            .status(err.status)
-            .json(createError(err.status, err.message));
-    };
+    return async (err, req, res, next) => res
+        .status(err.status)
+        .json({ status: err.status, message: err.message })
 };
 
 module.exports = {
