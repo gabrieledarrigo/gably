@@ -28,10 +28,10 @@
 
         <section class="shorten-url">
             <form class="shorten-url__form">
-                <input id="shorten-url" class="shorten-url__input" name="url" value="" type="text" placeholder="Paste a link to shorten it"
-                    autocomplete="off" autocorrect="off" autocapitalize="off">
+                <input id="shorten-url" class="shorten-url__input" name="url" value="" type="url" placeholder="Paste a link to shorten it"
+                    autocomplete="off" autocorrect="off" autocapitalize="off" required>
 
-                <button type="button" class="btn btn--primary shorten-url__submit">
+                <button type="submit" class="btn btn--primary shorten-url__submit">
                     Shorten
                 </button>
             </form>
@@ -59,6 +59,35 @@
             </div>
         </section>
     </main>
+
+    <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                console.log('ready');
+
+                (() => {
+                    const form = document.querySelector('.shorten-url__form');
+                    const input = form.querySelector('.shorten-url__input');
+
+                    form.addEventListener('submit', e => {
+                        e.preventDefault();
+
+                        const url = input.value;
+
+                        console.log(input.value);
+
+                        window.fetch('/shorten', {
+                            method: 'POST',
+                            headers: {
+                                'Content-type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                url
+                            })
+                        });
+                    });
+                })();
+            });
+    </script>
 </body>
 
 </html>
