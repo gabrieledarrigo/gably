@@ -25,7 +25,7 @@ describe('UrlService', () => {
         sinon.restore();
     });
 
-    fit('should return the server base url', () => {
+    it('should return the server base url', () => {
         const urlService = new UrlService();
 
         expect(urlService.baseUrl()).toEqual(APPLICATION_BASE_URL);
