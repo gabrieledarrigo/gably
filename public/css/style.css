@@ -3,6 +3,10 @@ body {
     font-size: 16px; 
 }
 
+.hidden {
+    display: none;
+}
+
 .color__blue-500 {
     color: #2097ff;
 
@@ -43,6 +47,14 @@ body {
     text-shadow: 1px 1px 1px #000;
 }
 
+.main__footer {
+    bottom: 0;
+    padding: 1rem;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
 .shorten-url {
     margin: 0 auto;
     max-width: 1200px;
@@ -60,8 +72,6 @@ body {
         width: 50%;
     }    
 }
-
-
 
 .shorten-url__form {
     align-items: center;
@@ -119,15 +129,15 @@ body {
 }
 
 .result__copy {
-    border: transparent;
     background-color: transparent;
+    border: 1px solid #ff9232;
+    border-radius: 5px;
     display: block;
     height: 30px;
-    padding: 0;
+    padding: 5px;
     position: absolute;
     right: 0;
     top: 0;
-    width: 30px;
 }
 
 .result__copy:hover {
