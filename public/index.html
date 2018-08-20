@@ -28,37 +28,26 @@
 
         <section class="shorten-url">
             <form class="shorten-url__form">
-                <input id="shorten-url" class="shorten-url__input" name="url" value="" type="text" placeholder="Paste a link to shorten it"
-                    autocomplete="off" autocorrect="off" autocapitalize="off">
+                <input id="shorten-url" class="shorten-url__input" name="url" value="" type="url" placeholder="Paste a link to shorten it"
+                    autocomplete="off" autocorrect="off" autocapitalize="off" required>
 
-                <button type="button" class="btn btn--primary shorten-url__submit">
+                <button type="submit" class="btn btn--primary shorten-url__submit">
                     Shorten
                 </button>
             </form>
 
             <div class="shorten-url__results">
-                <ul class="results">
-                    <li class="results__item">
-                        <article class="result">
-                            <h3 class="result__original">
-                                <a href="http://www.google.it" title="Google.it" class="link color__gray-500">
-                                    http://www.google.it
-                                </a>
-                            </h3>
-                            <h4 class="result__short">
-                                <a href="" title="" class="link color__orange-500">
-                                    http://gab.ly/xyz
-                                </a>
-                            </h4>
-                            <button class="result__copy">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" version="1" viewBox="0 0 1024 1280" width="30" height="30"><path d="M384 0h427q53 0 90 37t38 91v597q0 53-38 91t-90 37H384q-53 0-91-37t-37-91V128q0-53 37-91t91-37zM171 178v718q0 18 12 30t30 13h548q-14 37-47 61t-74 24H213q-53 0-90-37t-38-91V299q0-42 24-75t62-46zm640-93H384q-18 0-30 13t-13 30v597q0 18 13 31t30 12h427q17 0 30-12t12-31V128q0-18-12-30t-30-13z"/></svg>
-                            </button>
-                        </article>
-                    </li>
-                </ul>
+                <ul class="results"></ul>
             </div>
         </section>
+
+        <footer class="main__footer">
+            <small>A project by <a href="https://github.com/gabrieledarrigo" title="Gabriele D'Arrigo">Gabriele D'Arrigo</a></small>
+        </footer>
     </main>
+
+    <script src="https://unpkg.com/clipboard@2.0.0/dist/clipboard.min.js"></script>
+    <script type="module" src="js/index.js"></script>
 </body>
 
 </html>
