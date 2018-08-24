@@ -1,15 +1,15 @@
 version: "3"
 services:
-    # api:
-    #     restart: always
-    #     build: .
-    #     environment:
-    #         - NODE_ENV=${NODE_ENV}
-    #     ports:
-    #         - "8080:8080"
+    api:
+        build: .
+        environment:
+            - NODE_ENV=${NODE_ENV}
+        ports:
+            - "8080:8080"
+        depends_on:
+            - mongo
     mongo:
         image: mongo
-        restart: always
         environment:
             - MONGO_INITDB_ROOT_USERNAME=${MONGO_ROOT_USERNAME}
             - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}

@@ -14,9 +14,12 @@ const {
     MONGO_APPLICATION_PASSWORD
 } = config;
 
-const connection = mongoose.connect(MONGO_APPLICATION_URI, {
+mongoose.connect(MONGO_APPLICATION_URI, {
     keepAlive: true,
     useNewUrlParser: true,
+    autoReconnect: true,
+    reconnectTries: Number.MAX_VALUE,
+    reconnectInterval: 1000,
     user: MONGO_APPLICATION_USERNAME,
     pass: MONGO_APPLICATION_PASSWORD
 })
