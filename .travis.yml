@@ -5,8 +5,8 @@ node_js:
 before_script:
   - wget -qO- https://toolbelt.heroku.com/install.sh | sh
   - cp .env.dist .env
-after_success:
-  if: branch = master
-  script:
-    - heroku container:push web --app gably
-    - heroku container:release web --app gably
+deploy:
+  - provider: script
+    script: bash script/deploy.sh
+    on:
+      branch: master

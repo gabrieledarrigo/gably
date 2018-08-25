@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 echo 'Creating application user and db'
 echo ${MONGO_APPLICATION_DATABASE}
