@@ -1,5 +1,20 @@
+sudo: required
 language: node_js
 node_js:
   - "node"
-before_script:
-- cp .env.dist .env
+jobs:
+  include:
+    - stage: cli
+      script:
+        - wget -qO- https://toolbelt.heroku.com/install.sh | sh
+    - stage: test
+      before_script: cp .env.dist .env
+      script: npm run test
+    - stage: deploy
+      script: 
+        - heroku container:push web --app gably
+        - heroku container:release web --app gably 
+stages:
+  - test
+  - name: deploy
+    if: branch = master
