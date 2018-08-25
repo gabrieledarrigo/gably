@@ -132,12 +132,12 @@ body {
     background-color: transparent;
     border: 1px solid #ff9232;
     border-radius: 5px;
+    bottom: 0;
     display: block;
     height: 30px;
     padding: 5px;
     position: absolute;
     right: 0;
-    top: 0;
 }
 
 .result__copy:hover {
