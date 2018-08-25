@@ -1,7 +1,7 @@
 {
   "name": "gab.ly",
   "version": "0.1.0",
-  "description": "A super dupa url shortener",
+  "description": "Make it short, pls!",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
