@@ -8,6 +8,6 @@ before_script:
 deploy:
   - provider: script
     skip_cleanup: true
-    script: HEROKU_API_KEY=$HEROKU_API_KEY bash scripts/deploy.sh
+    script: bash scripts/deploy.sh
     on:
       branch: master

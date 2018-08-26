@@ -96,6 +96,7 @@ body {
 .shorten-url__submit {
     border: none;
     border-radius: 5px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
     font-size: 1rem;
     height: 3rem;
 }
@@ -107,6 +108,7 @@ body {
 }
 
 .shorten-url__submit:hover {
+    background-color: #f58d32;
     cursor: pointer;
 }
 
@@ -123,6 +125,7 @@ body {
 .results__item {
     background-color: #FFF;
     border-radius: 5px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
     margin: 1rem auto;
     padding: 1rem;
 }
@@ -158,6 +161,12 @@ body {
     padding: 5px;
     position: absolute;
     right: 0;
+}
+
+.result__copy:hover {
+    background-color: #ff9232;
+    color: #FFF;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 375px) {
