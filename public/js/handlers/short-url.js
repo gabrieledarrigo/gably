@@ -12,12 +12,12 @@ function shortUrlCreated(data = {}) {
                     </a>
                 </h3>
                 <h4 class="result__short">
-                    <a href="http://gab.ly/${data._id}" class="link color__orange-500">
-                        http://gab.ly/${data._id}
+                    <a href="${window.location.href}${data._id}" class="link color__orange-500">
+                        ${window.location.href}${data._id}
                     </a>
                 </h4>
                 <button class="result__copy" data-clipboard-text="${window.location.href}${data._id}">
-                    Copy to clipboard
+                    Copy <span>to clipboard</span>
                 </button>
             </article>
         </li>

@@ -20,7 +20,7 @@ mongoose.connect(MONGO_APPLICATION_URI, {
     user: MONGO_APPLICATION_USERNAME,
     pass: MONGO_APPLICATION_PASSWORD
 })
-.catch(e => {});
+.catch(e => console.log(e));
 
 const app = express();
 

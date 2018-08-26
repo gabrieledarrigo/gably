@@ -7,6 +7,6 @@ before_script:
   - cp .env.dist .env
 deploy:
   - provider: script
-    script: bash script/deploy.sh
+    script: bash scripts/deploy.sh
     on:
       branch: master

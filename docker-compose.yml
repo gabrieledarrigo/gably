@@ -1,13 +1,14 @@
 version: "3"
 services:
-    api:
-        build: .
-        environment:
-            - NODE_ENV=${NODE_ENV}
-        ports:
-            - "8080:8080"
-        depends_on:
-            - mongo
+    # api:
+    #     build: .
+    #     environment:
+    #         - NODE_ENV=${NODE_ENV}
+    #     ports:
+    #         - "8080:8080"
+    #     depends_on:
+    #         - mongo
+    #     command: sh -c './scripts/wait-for mongo:27017 -- npm start'
     mongo:
         image: mongo
         environment:
@@ -20,7 +21,7 @@ services:
             - "27017:27017"
         volumes:
             - "./data:/data/db"
-            - "./script/:/docker-entrypoint-initdb.d/"
+            - "./scripts/:/docker-entrypoint-initdb.d/"
 volumes:
     data:
     script:
