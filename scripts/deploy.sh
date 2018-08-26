@@ -2,5 +2,5 @@
 
 echo 'Releasing gably application'
 
-heroku container:push web --app gably
-heroku container:release web --app gably
+HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:push web --app gably
+HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:release web --app gably
