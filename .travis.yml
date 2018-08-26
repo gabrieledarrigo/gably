@@ -7,6 +7,7 @@ before_script:
   - cp .env.dist .env
 deploy:
   - provider: script
-    script: bash scripts/deploy.sh
+    skip_cleanup: true
+    script: HEROKU_API_KEY=$HEROKU_API_KEY bash scripts/deploy.sh
     on:
       branch: master
