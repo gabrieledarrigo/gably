@@ -108,9 +108,9 @@ The client side application is built with the standard web technologies: HTML5 a
 During the development of gab.ly application I followed some software engineering best practices:
 the API were developed with TDD, using Jest and sinon as test framework, all the code was versioned in github from the first commit and I used Travis.ci, an open source integration server in order to build and test the application on every push on the remote repository.  
 To facilitate the development without environments differences between development and production Docker was a natural fit: gab.ly application is dockerized and orchestrated with docker-compose.  
-Here a development flow diagram:
+Here follows a development flow diagram:
 
-
+![Development flow diagram](https://raw.githubusercontent.com/gabrieledarrigo/gably/readme/developer-flow.png "Development flow diagram")
 
 
 ## User interface
@@ -129,7 +129,7 @@ Figura 3: Componenti MVC della pagina servizi.html
 
 ## Codice
 Frammenti del codice più significativo
-  
+
 4.1. HTML
 4.2. CSS
 4.3. API
