@@ -110,8 +110,7 @@ the API were developed with TDD, using Jest and sinon as test framework, all the
 To facilitate the development without environments differences between development and production Docker was a natural fit: gab.ly application is dockerized and orchestrated with docker-compose.  
 Here follows a development flow diagram:
 
-![Development flow diagram](https://raw.githubusercontent.com/gabrieledarrigo/gably/readme/developer-flow.png "Development flow diagram")
-
+![Development flow diagram](https://raw.githubusercontent.com/gabrieledarrigo/gably/readme/diagrams/gably_development-flow.png "Development flow diagram")
 
 ## User interface
 
@@ -120,8 +119,8 @@ Here follows a development flow diagram:
 
 ### Diagramma dell'ordine gerarchico delle risorse
 
-
 ### Descrizione delle risorse
+
 Ogni singola risorsa deve essere descritta per le sue componenti MVC indicando le transazioni, l'ordine delle transazioni e gli eventuali parametri passati nella transazione.
 
 Figura 2: Legenda della notazione utilizzata
