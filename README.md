@@ -49,41 +49,77 @@ Here follows the Marcia Bates classification for the information seeking relativ
 The application adopt a freemium with subscription business model: users can use gab.ly without any limitation in its functionality and without any monetary cost, but with the possibility to register and pay for a premium version.  
 Adopting this model we can identify the business value of gab.ly deriving principally from three main sources.  
 The first source are advertising that are opened in a new tab everytime a user create a short url. This source of value depends and is strictly related with the entity of the traffic that gab.ly can generate, so it's hard to estimate its value without a collection of metrics.  
-The second source are subscriot
+The second source are subscriptions; with a price of $ 1.99 a user can register to gab.ly and use the premium functionality:
 
-Il valore dell'applicazione.
-Quali servizi o contenuti danno valore all'applicazione?  
-Quali elementi possono attirare l'interesse degli utenti?
-Quali elementi forniscono un valore all'investitore?
-È possibile identificare le transazioni che generano questo valore?
-È possibile fare una stima del valore prodotto (denaro, attenzione utenti, altro)?
+- The analytics associated with each created short url that shows how many times that url was used 
+- No more advertising on short url creation
 
-###  Flusso dei dati
-Quale qualità, stile e livello di dettagli caratterizzano i contenuti? Ottenere i contenuti.
-I contenuti vanno prodotti o possono essere reperiti sul mercato? Quali sono i costi di produzione o riadattamento?
-Archiviare e organizzare i contenuti
-Quale metodo di archiviazione?
-Quali metodi di selezione dei contenuti?
-Pubblicare i contenuti
-Quali trasformazioni devono essere applicate?
-I contenuti devono essere resi in formati che facilitino la condivisione (riuso) o questa deve essere sfavorita?
-Con che frequenza devo aggiornare i contenuti?
-Come scelgo un contenuto?
-Ci sono vincoli alla pubblicazione (diritti, licenze, scadenza)?
+Money transaction will be initially handled with paypal, extending later the payments method to other vendor.
 
-### Aspetti tecnologici
-Sandard per i contenuti. Come gestisco la portabilità dei contenuti in archiviazione? Che formati usare? Quali sono gli standard? Come gestisco la portabilità dei contenuti in pubblicazione? Come li seleziono? Come li compongo?
-Gestione del Codice tramite modello MVC (modelli alternativi da concordare col docente).
-Tecnologie utilizzate. Come sono state utilizzate le tecnologie (elencarle distinguendo quelle richieste dal progetto d'esame e quelle eventualmente aggiunte per altri motivi)? Ci sono motivazioni che hanno portato a scegliere una soluzione scartandone altre?
+### Flow of data
 
-## Interfacce
-Descrivere le principali interfacce utente dell'applicazione. È importante evidenziare quale stile sarà applicato alle interfacce e quali risorse saranno coinvolte nella loro esecuzione.
-Le interfacce possono essere disegnate o tramite un software o semplicemente a mano.
+Data are user created: every time a user paste a valid url into the application a new short url is created and is available to be used.  
+The data flow is very simple, fully automated and the cost per data depends only on the number of requests done to the application.  
+Data transformation happens on every short url creation: the original url is tied together with a unique id and persisted into the storage layer in JSON format.
+
+### Technological choices and architecture
+
+gab.ly application follows some of the twelve factor application principle, and is composed by three main architectural components: 
+
+- MongoDB as the main database to store and query the data.
+- A layer of HTTP API that can be used to create and retrieve short urls, using JSON as the main data exchange format.
+- A simple client side application that handle the short url creation / usage.
+
+The architeture is tied together and orchestrated with Docker, in order to simplify the development and the production management. 
+
+##### Storage
+
+The data are persisted into JSON format, so that they are: portable between different storage system, small in size, easy to serialize / deserialize independently by the programming language used to extract and expose them.  
+Each short url data structure has this format:
+
+```javascript
+{
+    _id: String,
+    originalUrl: String,
+    value: String,
+    createdAt: Date,
+    updatedAt: Date
+}
+```
+
+and is archived into MongoDB.
+MongoDB is a natural fit for an applications of this type, due to it's scalabilty and ease of use.
+
+##### HTTP API
+
+The HTTP API are built with express.js framework, following a classical MVC architecture defined by:
+
+- Controllers: they handle the HTTP interaction with the outside using JSON format.
+- Models: A single domain model, it represent the short url object that is saved into MongoDB.
+- Router: Where all API routes are defined
+- Services: A services that implements the domain logic required to handle short url: creation, persistance, query and so on.
+
+##### Client side application
+
+The client side application is built with the standard web technologies: HTML5 and CSS3 to create the page structure and styles, and Javascript, in ECMAScript6 version, to handle the user interface interaction
+
+##### Development and production
+
+During the development of gab.ly application I followed some software engineering best practices:
+the API were developed with TDD, using Jest and sinon as test framework, all the code was versioned in github from the first commit and I used Travis.ci, an open source integration server in order to build and test the application on every push on the remote repository.  
+To facilitate the development without environments differences between development and production Docker was a natural fit: gab.ly application is dockerized and orchestrated with docker-compose.  
+Here a development flow diagram:
+
+
+
+
+## User interface
+
  
 ## Architettura
 
 ### Diagramma dell'ordine gerarchico delle risorse
-Identificazioni delle pagine da rendere accessibili come risorse (URI) e loro organizzazione gerarchica.
+
 
 ### Descrizione delle risorse
 Ogni singola risorsa deve essere descritta per le sue componenti MVC indicando le transazioni, l'ordine delle transazioni e gli eventuali parametri passati nella transazione.
@@ -100,8 +136,3 @@ Frammenti del codice più significativo
 4.4. Node.js
 
 ## Conclusioni
-
-## Nota bibliografica e sitografica
-Dove si elencano le risorse bibliografiche e sitografiche usate come riferimento e documentazione del lavoro.
-(1) Autore, Titolo, Editore, Anno
-(2) URL, (autore data), Data di consultazione, (URN)
