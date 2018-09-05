@@ -119,7 +119,7 @@ Here follows a development flow diagram:
 The user interface consists in a single web page, and is heavily inspired by Google.com homepage: the application title (Gab.ly) welcome the user with a funny typeface, and then a simple, minimalist and immediate input is present in the middle of the page; the input can be used to paste a valid url to retrieve a short one.
 The language used to stylize the interface is material design.
 
-![user interface mockup](https://raw.githubusercontent.com/gabrieledarrigo/gably/readme/diagrams/gably_development-flow.png "user interface mockup")
+![user interface mockup](https://github.com/gabrieledarrigo/gably/blob/readme/diagrams/gably_ui.png "user interface mockup")
  
 ## Resources architecture
 
