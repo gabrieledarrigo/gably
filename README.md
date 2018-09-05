@@ -6,11 +6,13 @@
 ## Introduction
 
 gab.ly is s super duper url shortner for the "Web programming" course of "Sicurezza dei Sistemi e delle Reti Informatiche":  
-with gab.ly application the user can convert a url into a short url so that it can be be used in emails, documents, websites, or where typing a long url is not convenient.  
+with gab.ly application a user can convert a url into a short one, so that it can be be used in emails, documents, websites, or where typing a long url is not convenient.  
 
 The application is developed with the technologies illustrated during the course: [Node.js](https://nodejs.org/it/) for the server application, HTML5, CSS3 and Javascript for the client.  
 
-The application runs here: [https://gably.herokuapp.com/](https://gably.herokuapp.com/)
+The application runs in production at Heroku, at the following link:  
+
+ [https://gably.herokuapp.com/](https://gably.herokuapp.com/)
 
 ### Requirements
 
@@ -23,18 +25,18 @@ Even if the application architecture presents some techinal challenges, the requ
 
 ### Target
 
-gab.ly is addressed to mid / expert users, capable of browsing Internet and web applications to create some content.  
-It targets users that need a url shortner, that are not satisfied by bit.ly, the main competitor, and that have no more options after the
+gab.ly is addressed from mid to expert users, capable of browsing the Internet and using complex web applications to create content and media of various type.  
+It targets users that need a url shortner, that are not satisfied by bit.ly (which is the main competitor), and that have no more direct options after the
 Google goo.gl shutdown.  
-Gab.ly will be used preferably from desktop devices, due to the fact that is a tool , but can be used on mobile devices too.
+Gab.ly will be used preferably from desktop devices, due to the fact that is a business oriented tool, probably used in desktop position during working time, but it can be used on mobile devices too thanks to the responsiveness of the user interface.
 
-##### Language
+#### Language
 
 gab.ly use a simple yet powerful visual languague to organize the information: similar to the well known Google's homepage the application has a single input that can be used to retrieve the short url.
 
-##### User's motivation
+#### User's motivation
 
-gab.ly users will be mainly driven by business motivations: the need for a tool to create short url that can be used during daily work where a long url is awkward.    
+gab.ly users will be mainly driven by business motivations: the need for a tool to create short url that can be used during daily work where a long url is awkward to use.    
 Saying this, it's clear that gab.ly users already knows what they want, and that they are set up to actively search for the contents exposed by the application.  
 Here follows the Marcia Bates classification for the information seeking relative to gab.ly:
 
@@ -72,7 +74,7 @@ gab.ly application follows some of the twelve factor application principle, and 
 
 The architeture is tied together and orchestrated with Docker, in order to simplify the development and the production management. 
 
-##### Storage
+#### Storage
 
 The data are persisted into JSON format, so that they are: portable between different storage system, small in size, easy to serialize / deserialize independently by the programming language used to extract and expose them.  
 Each short url data structure has this format:
@@ -90,7 +92,7 @@ Each short url data structure has this format:
 and is archived into MongoDB.
 MongoDB is a natural fit for an applications of this type, due to it's scalabilty and ease of use.
 
-##### HTTP API
+#### HTTP API
 
 The HTTP API are built with express.js framework, following a classical MVC architecture defined by:
 
@@ -99,27 +101,35 @@ The HTTP API are built with express.js framework, following a classical MVC arch
 - Router: Where all API routes are defined
 - Services: A services that implements the domain logic required to handle short url: creation, persistance, query and so on.
 
-##### Client side application
+#### Client side application
 
 The client side application is built with standard web technologies: HTML5 and CSS3 to create the page structure and styles, and Javascript, in ECMAScript6 version, to handle the user interface interactions.
 
-##### Development and production
+#### Development and production
 
 During the development of gab.ly application I followed some of the software engineering best practices:
 The code was versioned in GitHub from the first iteration to take advantage of its branching capabilities; the API were built with TDD, writing the tests first, to have fast feedback
 during the development cycle, in combination with Travis.ci, an open source integration server that builds and tests the application on every push on the remote repository.  
 To facilitate the development without environments differences between the development and production environment, Docker was a natural choice.  
-gab.ly application is dockerized and orchestrated with docker-compose; the latter define two services, one for the Node.js application, the other for MongoDB.
-Here follows a development flow diagram:
+gab.ly application is dockerized and orchestrated with docker-compose; the latter define two services, one for the Node.js application, the other for MongoDB.  
+
+The development flow diagram:
 
 ![Development flow diagram](https://raw.githubusercontent.com/gabrieledarrigo/gably/readme/diagrams/gably_development-flow.png "Development flow diagram")
 
 ## User interface
 
-The user interface consists in a single web page, and is heavily inspired by Google.com homepage: the application title (Gab.ly) welcome the user with a funny typeface, and then a simple, minimalist and immediate input is present in the middle of the page; the input can be used to paste a valid url to retrieve a short one.
-The language used to stylize the interface is material design.
+The user interface consists in a single web page, and is heavily inspired by Google.com homepage: the application title (Gab.ly) occupy the first portion of the screen, welcoming the users with a funny typeface; aftwerward a simple, minimalist and immediate input is present in the middle of the page; the input can be used to paste a valid url and to retrieve a short one after the submission.  
+The language used to stylize the interface is material design, due to its immediacy, simplicity and powerful principles.
 
-![user interface mockup](https://github.com/gabrieledarrigo/gably/blob/readme/diagrams/gably_ui.png "user interface mockup")
+#### Mockup
+
+![user interface mockup](https://github.com/gabrieledarrigo/gably/blob/readme/diagrams/gably_mockup.png "user interface mockup")
+
+#### Definitive design
+
+![user interface design](https://github.com/gabrieledarrigo/gably/blob/readme/diagrams/gably_ui.jpg "user interface design")
+
  
 ## Resources architecture
 
