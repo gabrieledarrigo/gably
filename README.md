@@ -101,23 +101,37 @@ The HTTP API are built with express.js framework, following a classical MVC arch
 
 ##### Client side application
 
-The client side application is built with the standard web technologies: HTML5 and CSS3 to create the page structure and styles, and Javascript, in ECMAScript6 version, to handle the user interface interaction
+The client side application is built with standard web technologies: HTML5 and CSS3 to create the page structure and styles, and Javascript, in ECMAScript6 version, to handle the user interface interactions.
 
 ##### Development and production
 
-During the development of gab.ly application I followed some software engineering best practices:
-the API were developed with TDD, using Jest and sinon as test framework, all the code was versioned in github from the first commit and I used Travis.ci, an open source integration server in order to build and test the application on every push on the remote repository.  
-To facilitate the development without environments differences between development and production Docker was a natural fit: gab.ly application is dockerized and orchestrated with docker-compose.  
+During the development of gab.ly application I followed some of the software engineering best practices:
+The code was versioned in GitHub from the first iteration to take advantage of its branching capabilities; the API were built with TDD, writing the tests first, to have fast feedback
+during the development cycle, in combination with Travis.ci, an open source integration server that builds and tests the application on every push on the remote repository.  
+To facilitate the development without environments differences between the development and production environment, Docker was a natural choice.  
+gab.ly application is dockerized and orchestrated with docker-compose; the latter define two services, one for the Node.js application, the other for MongoDB.
 Here follows a development flow diagram:
 
 ![Development flow diagram](https://raw.githubusercontent.com/gabrieledarrigo/gably/readme/diagrams/gably_development-flow.png "Development flow diagram")
 
 ## User interface
 
- 
-## Architettura
+The user interface consists in a single web page, and is heavily inspired by Google.com homepage: the application title (Gab.ly) welcome the user with a funny typeface, and then a simple, minimalist and immediate input is present in the middle of the page; the input can be used to paste a valid url to retrieve a short one.
+The language used to stylize the interface is material design.
 
-### Diagramma dell'ordine gerarchico delle risorse
+![user interface mockup](https://raw.githubusercontent.com/gabrieledarrigo/gably/readme/diagrams/gably_development-flow.png "user interface mockup")
+ 
+## Resources architecture
+
+The application exposes a single webpage to the final user: 
+
+- index.html
+
+The HTTP API exposes two resources:
+
+- gab.ly/shorten
+- gab.ly/:id
+
 
 ### Descrizione delle risorse
 
