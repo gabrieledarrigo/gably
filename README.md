@@ -30,11 +30,11 @@ It targets users that need a url shortner, that are not satisfied by bit.ly (whi
 Google goo.gl shutdown.  
 Gab.ly will be used preferably from desktop devices, due to the fact that is a business oriented tool, probably used in desktop position during working time, but it can be used on mobile devices too thanks to the responsiveness of the user interface.
 
-#### Language
+### Language
 
 gab.ly use a simple yet powerful visual languague to organize the information: similar to the well known Google's homepage the application has a single input that can be used to retrieve the short url.
 
-#### User's motivation
+### User's motivation
 
 gab.ly users will be mainly driven by business motivations: the need for a tool to create short url that can be used during daily work where a long url is awkward to use.    
 Saying this, it's clear that gab.ly users already knows what they want, and that they are set up to actively search for the contents exposed by the application.  
@@ -44,7 +44,6 @@ Here follows the Marcia Bates classification for the information seeking relativ
 |------------|-----------|-------------|
 | **directed**   | *Searching* | Monitoring  |
 | **undirected** | *Browsing*  | Being Aware |
-
 
 ### Business value
 
@@ -104,6 +103,7 @@ The HTTP API are built with express.js framework, following a classical MVC arch
 #### Client side application
 
 The client side application is built with standard web technologies: HTML5 and CSS3 to create the page structure and styles, and Javascript, in ECMAScript6 version, to handle the user interface interactions.
+The web page is served with the static middleware of express.js
 
 #### Development and production
 
@@ -124,31 +124,40 @@ The language used to stylize the interface is material design, due to its immedi
 
 #### Mockup
 
-![user interface mockup](https://github.com/gabrieledarrigo/gably/blob/readme/diagrams/gably_mockup.png "user interface mockup")
+![User interface mockup](https://github.com/gabrieledarrigo/gably/blob/readme/diagrams/gably_mockup.png "User interface mockup")
 
 #### Definitive design
 
-![user interface design](https://github.com/gabrieledarrigo/gably/blob/readme/diagrams/gably_ui.jpg "user interface design")
+![User interface design](https://github.com/gabrieledarrigo/gably/blob/readme/diagrams/gably_ui.jpg "User interface design")
 
- 
 ## Resources architecture
 
 The application exposes a single webpage to the final user: 
 
 - index.html
 
-The HTTP API exposes two resources:
+The HTTP API exposes two endpoints:
 
 - gab.ly/shorten
 - gab.ly/:id
 
 
-### Descrizione delle risorse
+### Resources diagrams
 
-Ogni singola risorsa deve essere descritta per le sue componenti MVC indicando le transazioni, l'ordine delle transazioni e gli eventuali parametri passati nella transazione.
+![Short url creation](https://github.com/gabrieledarrigo/gably/blob/readme/diagrams/short_url.png "Short url creation")
 
-Figura 2: Legenda della notazione utilizzata
-Figura 3: Componenti MVC della pagina servizi.html
+1.
+2.
+3.
+
+![Redirect to original url](https://github.com/gabrieledarrigo/gably/blob/readme/diagrams/redirect.png "Redirect to original url")
+
+1.
+2.
+3.
+4.
+5.
+6.
 
 ## Codice
 Frammenti del codice più significativo
