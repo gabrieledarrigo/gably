@@ -1,5 +1,3 @@
-const createError = require('http-errors');
-
 const errorHandler = () => {
     /**
      * Application error handler.
@@ -8,7 +6,7 @@ const errorHandler = () => {
      * @param {object} res
      * @return {object} 
      */
-    return async (err, req, res, next) => res
+    return async (err, req, res) => res
         .status(err.status)
         .json({ status: err.status, message: err.message })
 };

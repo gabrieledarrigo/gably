@@ -1,4 +1,5 @@
-const loaded = require('dotenv').load();
+require('dotenv').load();
+
 const config = require('config');
 const express = require('express');
 const mongoose = require('mongoose');
