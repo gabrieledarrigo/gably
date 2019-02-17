@@ -12,6 +12,7 @@ const {
     MONGO_APPLICATION_URI,
     MONGO_APPLICATION_USERNAME,
     MONGO_APPLICATION_PASSWORD,
+    NODE_ENV,
     PORT,
 } = config;
 
@@ -24,6 +25,12 @@ mongoose.connect(MONGO_APPLICATION_URI, {
 .catch(e => console.log(e));
 
 const app = express();
+
+app.use((request, response) => {
+    if (!request.secure && NODE_ENV === 'production') {
+        response.redirect(`https://${request.headers.host}${request.url}`);
+    }
+});
 
 app.use(bodyParser.json());
 app.use(compression());
