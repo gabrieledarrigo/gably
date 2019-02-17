@@ -134,12 +134,16 @@ body {
     position: relative;
 }
 
-.result__original {
-    font-size: 0.9rem;
-    margin: 0 0 1.5rem;
+.result__original,
+.result__short {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.result__original {
+    font-size: 0.9rem;
+    margin: 0 0 1.5rem;
 }
 
 .result__short {
@@ -169,7 +173,11 @@ body {
     cursor: pointer;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 414px) {
+    .result__short {
+       max-width: 85%;
+    }
+
     .result__copy span {
         display: none;
     }
