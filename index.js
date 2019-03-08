@@ -1,3 +1,4 @@
+require('newrelic');
 require('dotenv').load();
 
 const config = require('config');
