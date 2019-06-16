@@ -1,5 +1,5 @@
 require('newrelic');
-require('dotenv').load();
+require('dotenv').config();
 
 const config = require('config');
 const express = require('express');
@@ -26,12 +26,6 @@ mongoose.connect(MONGO_APPLICATION_URI, {
 .catch(e => console.log(e));
 
 const app = express();
-
-// app.use((request, response) => {
-//     if (!request.secure && NODE_ENV === 'production') {
-//         response.redirect(`https://${request.headers.host}${request.url}`);
-//     }
-// });
 
 app.use(bodyParser.json());
 app.use(compression());
