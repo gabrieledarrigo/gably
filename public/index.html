@@ -9,13 +9,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#1c8cff">
 
+    <link rel="preload" as="script" crossorigin="crossorigin" href="/js/http/index.js ">
+    <link rel="preload" as="script" crossorigin="crossorigin" href="/js/utils/log.js ">
+    <link rel="preload" as="script" crossorigin="crossorigin" href="/js/handlers/clipboard.js">
+    <link rel="preload" as="script" crossorigin="crossorigin" href="/js/handlers/short-url.js">
+
     <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="/images/icons/favicon.ico">
     <link rel="icon" type="image/png" href="/images/icons/icon-192x192.png" sizes="192x192">
-
+    
     <link href="https://unpkg.com/minireset.css@0.0.3/minireset.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans&display=swap" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -50,8 +55,8 @@
         </section>
     </main>
 
-    <script src="https://unpkg.com/clipboard@2.0.0/dist/clipboard.min.js"></script>
-    <script type="module" src="js/index.js"></script>
+    <script src="https://unpkg.com/clipboard@2.0.0/dist/clipboard.min.js" defer></script>
+    <script type="module" src="/js/index.js"></script>
 </body>
 
 </html>
