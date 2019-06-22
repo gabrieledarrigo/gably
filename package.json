@@ -35,7 +35,7 @@
     "shortid": "^2.2.12"
   },
   "devDependencies": {
-    "eslint": "^5.16.0",
+    "eslint": "^6.0.0",
     "eslint-config-recommended": "^4.0.0",
     "jest": "^24.8.0",
     "mockingoose": "^2.13.1",
