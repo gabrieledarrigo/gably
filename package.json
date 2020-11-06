@@ -23,24 +23,24 @@
   },
   "homepage": "https://github.com/gabrieledarrigo/gably#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "compression": "^1.7.4",
-    "config": "^3.2.0",
-    "dotenv": "^8.0.0",
-    "express": "^4.17.1",
-    "http-errors": "^1.7.3",
-    "mongoose": "^5.7.5",
-    "morgan": "^1.9.0",
-    "newrelic": "^5.10.0",
-    "shortid": "^2.2.12"
+    "body-parser": "1.19.0",
+    "compression": "1.7.4",
+    "config": "3.3.2",
+    "dotenv": "8.2.0",
+    "express": "4.17.1",
+    "http-errors": "1.7.3",
+    "mongoose": "5.10.13",
+    "morgan": "1.10.0",
+    "newrelic": "5.10.0",
+    "shortid": "2.2.16"
   },
   "devDependencies": {
-    "eslint": "^6.0.1",
-    "eslint-config-recommended": "^4.0.0",
-    "jest": "^24.8.0",
-    "mockingoose": "^2.13.1",
-    "nodemon": "^1.19.1",
-    "npm-check": "^5.9.0",
-    "sinon": "^7.3.2"
+    "eslint": "7.12.1",
+    "eslint-config-recommended": "4.1.0",
+    "jest": "26.6.3",
+    "mockingoose": "2.13.2",
+    "nodemon": "2.0.6",
+    "npm-check": "5.9.2",
+    "sinon": "9.2.1"
   }
 }
